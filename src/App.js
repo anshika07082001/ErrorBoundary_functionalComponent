@@ -6,6 +6,7 @@ import ErrorComponent from './component/ErrorComponent';
 
 function App() {
   var [number,setNumber]=useState(6)
+  // random number function 
   const btnHandler=()=>{
     number=Math.floor(Math.random()*20)+1;
     setNumber(number)

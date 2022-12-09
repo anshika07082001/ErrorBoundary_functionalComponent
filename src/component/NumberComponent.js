@@ -1,9 +1,11 @@
 import React from 'react'
 
 const NumberComponent = (props) => {
-    if(props.number<5){
-        throw new Error('Number less than 5!!')
-    }
+
+  // condition checks whether number is less than 5 or not
+  if(props.number<5){
+    throw new Error('Number less than 5!!')
+  }
   return (
     <>
     <h3>{props.number}</h3>
