@@ -1,23 +1,21 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import NumberComponent from './component/NumberComponent';
+import { ErrorBoundary } from 'react-error-boundary';
+import ErrorComponent from './component/ErrorComponent';
 
 function App() {
+  var [number,setNumber]=useState(6)
+  const btnHandler=()=>{
+    number=Math.floor(Math.random()*20)+1;
+    setNumber(number)
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <h2>Error Boundary in Functional Component</h2>
+      <ErrorBoundary FallbackComponent={ErrorComponent} onReset={()=>setNumber(9)}>
+        <NumberComponent btnHandler={btnHandler} number={number}/>
+      </ErrorBoundary>
     </div>
   );
 }
